@@ -19,6 +19,9 @@ class JObject {
 
   public function __set($key, $val=null){
     if(is_array($key)){
+      // If this was passed in as an array, it's part of func_get_args,
+      // so we need to extract the actual array from the arguments array.
+      $key = $key[0];
       foreach($key as $k=>$kv){
         if(is_numeric($k)){
           $kk = array_keys(get_object_vars($this))[$k];
