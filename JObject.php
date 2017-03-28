@@ -6,9 +6,9 @@
  *  defined on the object. This is useful for data objects.
  */
 class JObject {
-  private $prop1 = null;
-  private $prop2 = null;
-  private $prop3 = null;
+  protected $prop1 = null;
+  protected $prop2 = null;
+  protected $prop3 = null;
 
   public function __construct(){
     $arguments = func_get_args();
@@ -39,7 +39,7 @@ class JObject {
         $this->$key = $val;
       }else{
         trigger_error(
-          'Undefined property (' + $key + ')'
+          'Undefined property (' . $key . ')'
         );
       }
     }
@@ -53,7 +53,7 @@ class JObject {
         return $this->$key;
       }else{
         trigger_error(
-          'Undefined property (' + $key + ')'
+          'Undefined property (' . $key . ')'
         );
         return null;
       }
